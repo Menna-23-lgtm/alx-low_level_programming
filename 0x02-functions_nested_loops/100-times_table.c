@@ -1,48 +1,36 @@
 #include "main.h"
-
 /**
- * print_times_table - prints the n times table, starting with 0
- * @n: number of the times table
- */
+ * print_times_table - prints the n times table
+ *
+ * @n: the input
+*/
+
 void print_times_table(int n)
 {
-	int i, j, k;
-
-	if (n >= 0 && n <= 15)
+int num1, mult, num3;
+if (n <= 15 && n >= 0)
+	for (num1 = 0; num1 <= n; ++num1)
 	{
-		for (i = 0; i <= n; i++)
+		_putchar (48);
+		for (mult = 1; mult <= n; ++mult)
 		{
-			for (j = 0; j <= n; j++)
-			{
-				k = j * i;
-if (j == 0)
-				{
-					_putchar(k + '0');
-				} else if (k < 10 && j != 0)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(k + '0');
-				} else if (k >= 10 && k < 100)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar((k / 10) + '0');
-					_putchar((k % 10) + '0');
-				} else if (k >= 100)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar((k / 100) + '0');
-					_putchar(((k / 10) % 10) + '0');
-					_putchar((k % 10) + '0');
-				}
-			}
-			_putchar('\n');
-		}
-	}
-}
+			_putchar(',');
+			_putchar(' ');
+			num3 = num1 * mult;
 
+			if (num3 <= 9)
+				_putchar(' ');
+			if (num3 <= 99)
+				_putchar(' ');
+			if (num3 >= 100)
+			{
+				_putchar((num3 / 100) + 48);
+				_putchar ((num3 / 10) % 10 + 48);
+			}
+			else if (num3 <= 99 && num3 >= 10)
+				_putchar ((num3 / 10) + 48);
+			_putchar ((num3 % 10) + 48);
+}
+_putchar ('\n');
+}
+}
